@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <div>
       <div className="w-screen ">
-        <div className="w-96 h-32 z-50 absolute mt-24 right-80 ">
+        <div className="w-1/3 h-32 z-50 absolute mt-28 right-64 ">
           <h1 className="text-3xl font-extrabold">
             Get Your Ayurvedic <br></br>Treatment right Now
           </h1>
