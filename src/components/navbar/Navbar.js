@@ -123,7 +123,7 @@ function Navbar() {
               <Button
               key={page}
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'black', display: 'block',fontSize: '1.1rem',fontFamily:"Overpass Variable",fontWeight:"bold"}}
+              sx={{ my: 2, color: 'black', display: 'block',fontSize: '0.9rem',fontFamily:"Overpass Variable",fontWeight:"bold"}}
               >
                 {page}
               </Button>
