@@ -1,25 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Typography } from "@mui/material";
-import { TextField } from "@mui/material";
-import { Button } from "@mui/material";
-import data from "./sample.JSON";
 import Search from "./Search.js";
-import '@fontsource/courier-prime'
+import Boxcomponent from "./Boxcomponent.js";
+
+
 function Section3() {
-
  
-  
-  
-
-  // console.log(Symptoms);
 
   return (
-    <div className="w-screen text-center -mt-20 ">
-      <Typography variant="h1" gutterBottom >
-        Tell Us about Your Symptoms
+    <div className="w-screen text-center -mt-32 ">
+      <Typography variant="h1" gutterBottom>
+        Add Your Symptoms
       </Typography>
-     
-   <Search></Search>
+      <Search />
+      <Boxcomponent />
+      
     </div>
   );
 }
