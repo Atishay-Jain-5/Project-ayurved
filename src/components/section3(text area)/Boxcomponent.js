@@ -8,7 +8,7 @@ import section3img from "./ig.png"
 export default function Boxcomponent() {
   const { Symptoms } = useContext(SymptomsContext);
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-between ">
     <Box
       sx={{
         display: "flex",
@@ -20,8 +20,8 @@ export default function Boxcomponent() {
         marginLeft: "20px",
         '& > :not(style)': {
           m: 1,
-          width: 660,
-          height: 440,
+          width: 460,
+          height: 340,
         },
       }}
     >

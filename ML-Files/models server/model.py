@@ -18,8 +18,9 @@ modelNB = load(model_pathNB)
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json(force=True)
+    print(data)
     input_data = data['data'] 
-    print(input_data)
+   
     predictionRF = modelRF.predict(input_data).tolist()
     predictionK = modelK.predict(input_data).tolist()
     predictionMLP = modelMLP.predict(input_data).tolist()
@@ -27,7 +28,7 @@ def predict():
     predictionSVM = modelSVM.predict(input_data).tolist()
     predictionNB = modelNB.predict(input_data).tolist()
     l1 = {"RF": predictionRF, "K": predictionK, "DT": predictionDT, "predictionMLP": predictionMLP,"predictionSVM": predictionSVM,"predictionNB": predictionNB}
-
+   # print(l1)
     return jsonify(l1)
 
 if __name__ == '__main__':
