@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 
 function Login() {
     const googlelogin =async(credentialResponse)=>{
+      console.log(credentialResponse)
         try{
             const response = await fetch("http://localhost:5000/login", {
                 headers: {
