@@ -6,13 +6,14 @@ const SymptomsState = (props) => {
   const [predictions, setPredictions] = useState([]);
   const send_symptoms = async () => {
     try {
+      console.log(Symptoms)
       const response = await fetch("http://localhost:5000/api", {
         headers: {
           "Content-Type": "application/json",
         },
         method: "POST",
         body: JSON.stringify({
-          data: Symptoms,
+          "Symptoms": Symptoms,
         }),
       });
       const data = await response.json();
