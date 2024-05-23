@@ -6,10 +6,11 @@ import Section2 from "./components/section2/Section2";
 import Section3 from "./components/section3(text area)/Section3";
 import SymptomsState from "./context/SymptopmsState";
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
+import { CookiesProvider } from 'react-cookie';
 function App() {
   return (
 <GoogleOAuthProvider clientId="123937925398-ttr09bpba16rkhuiun1ol7ckc00duf3t.apps.googleusercontent.com">
+<CookiesProvider defaultSetOptions={{ path: '/' }}>
     <SymptomsState>
 
       <div className="overflow-hidden">
@@ -27,6 +28,7 @@ function App() {
         </div>
       </div>
     </SymptomsState>
+    </CookiesProvider>
   </GoogleOAuthProvider>
   );
 }

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from "react";
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
+import { useCookies } from 'react-cookie';
 
 function Login() {
+  const [token,set_token ]= useState("")
+  const [cookies, setCookie] = useCookies(['tokens']);
     const googlelogin =async(credentialResponse)=>{
       console.log(credentialResponse)
         try{
@@ -15,6 +18,10 @@ function Login() {
                   token: credentialResponse.credential,
                 }),
               });
+              const t=await response.json();
+              console.log(t.authToken)
+              setCookie('tokens',t.authToken)
+              
         }
         catch(error){
             console.log(error)
