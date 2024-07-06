@@ -18,10 +18,10 @@ function Section3() {
       <Search />
       <Boxcomponent />
       
-      <Button variant="contained" color="success" className="mt-2 w-32 h-10 mb-10" onClick={send_symptoms}>
-        Next
+      <Button variant="contained" color="success" className="mt-2 w-32 h-12 mb-10" onClick={send_symptoms}>
+        Get Prediction
       </Button>
-      <h1>hello</h1>
+      
       {predictions && predictions.Disease&& (
         <h1>{predictions.Disease[0]}</h1>
       )}
