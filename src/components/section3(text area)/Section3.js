@@ -22,9 +22,7 @@ function Section3() {
         Get Prediction
       </Button>
       
-      {predictions && predictions.Disease&& (
-        <h1>{predictions.Disease[0]}</h1>
-      )}
+      
     </div>
   );
 }

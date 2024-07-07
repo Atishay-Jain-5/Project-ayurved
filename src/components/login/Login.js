@@ -8,7 +8,6 @@ function Login() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    
     if (cookies.tokens) {
       setIsAuthenticated(true);
     }
@@ -36,20 +35,22 @@ function Login() {
     }
   };
 
- 
   if (isAuthenticated) {
     return <Navigate to="/" />;
   }
 
   return (
-    <GoogleLogin
-      onSuccess={credentialResponse => {
-        googleLogin(credentialResponse);
-      }}
-      onError={() => {
-        console.log('Login Failed');
-      }}
-    />
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <GoogleLogin
+        onSuccess={credentialResponse => {
+          googleLogin(credentialResponse);
+        }}
+        onError={() => {
+          console.log('Login Failed');
+        }}
+        className="px-6 py-3 text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+      />
+    </div>
   );
 }
 

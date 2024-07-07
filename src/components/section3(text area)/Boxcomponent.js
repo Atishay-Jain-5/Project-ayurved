@@ -6,7 +6,8 @@ import { Typography } from "@mui/material";
 import section3img from "./ig.png";
 
 export default function Boxcomponent() {
-  const { Symptoms } = useContext(SymptomsContext);
+  const { Symptoms,predictions } = useContext(SymptomsContext);
+  // const { , send_symptoms } = symptomsContext;
   return (
     <div className="flex flex-row">
       <Box
@@ -93,7 +94,9 @@ export default function Boxcomponent() {
                 gutterBottom
                 style={{ fontFamily: "Courier New", padding: "3px" }}
               >
-              
+              {predictions && predictions.Disease&& (
+        <h1>{predictions.Disease[0]}</h1>
+      )}
               </Typography>
             </Paper>
          
