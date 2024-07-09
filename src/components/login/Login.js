@@ -15,7 +15,7 @@ function Login() {
 
   const googleLogin = async (credentialResponse) => {
     try {
-      console.log(credentialResponse)
+      console.log(credentialResponse);
       const response = await fetch("http://localhost:5000/login", {
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +26,8 @@ function Login() {
         }),
       });
       const t = await response.json();
-      setCookie('tokens', t.authToken, { path: '/' });
+      const expires = new Date(Date.now() + 1 * 1 * 60 * 1000); 
+      setCookie('tokens', t.authToken, { path: '/', expires });
       if (t.authToken) {
         setIsAuthenticated(true);
       }
