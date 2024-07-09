@@ -8,7 +8,7 @@ import SymptomsContext from "../../context/SymptopsContext";
 function Section3() {
   const symptomsContext = useContext(SymptomsContext);
   const { predictions, send_symptoms } = symptomsContext;
-  console.log(predictions);
+  // console.log(predictions);
   return (
     <div className="w-screen text-center -mt-32">
       <Typography variant="h1" gutterBottom>
@@ -18,8 +18,8 @@ function Section3() {
       <Search />
       <Boxcomponent />
       
-      <Button variant="contained" color="success" className="mt-2 w-32 h-12 mb-10" onClick={send_symptoms}>
-        Get Prediction
+      <Button variant="contained" color="success" className="mt-2 w-42 h-12 mb-12" onClick={send_symptoms}>
+        Get Prediction and Cure
       </Button>
       
       
