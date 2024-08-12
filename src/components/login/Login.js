@@ -26,7 +26,7 @@ function Login() {
         }),
       });
       const t = await response.json();
-      const expires = new Date(Date.now() + 1 * 1 * 60 * 1000); 
+      const expires = new Date(Date.now() + 6 * 60 * 60 * 1000); 
       setCookie('tokens', t.authToken, { path: '/', expires });
       if (t.authToken) {
         setIsAuthenticated(true);
