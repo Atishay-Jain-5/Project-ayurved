@@ -12,6 +12,9 @@ model_pathNB = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\mode
 model_dia_pathNB = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\diabetes\NaiveBayes_diab_.joblib'
 model_dia_pathSVM = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\diabetes\SVM_diab_.joblib'
 model_dia_pathLR = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\diabetes\LogisticRegression_diab_.joblib'
+model_heart_grad_path= r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\heart\GradientBoostingClassifier_heart.joblib'
+model_heart_logi_path= r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\heart\LogisticRegression_heart.joblib'
+model_heart_NB_path= r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\heart\NaiveBayes_2_heart.joblib'
 modelRF = load(model_pathRF)
 modelK = load(model_pathk)
 modelDT = load(model_pathDT)
@@ -19,6 +22,9 @@ modelMLP = load(model_pathMLP)
 model_dia_LR=load(model_dia_pathLR)
 model_dia_SVM=load(model_dia_pathSVM)
 model_dia_NB=load(model_dia_pathNB)
+model_heart_grad=load(model_heart_grad_path)
+model_heart_logi=load(model_heart_logi_path)
+model_heart_NB=load(model_heart_NB_path)
 # modelSVM = load(model_pathSVM)
 modelNB = load(model_pathNB)
 @app.route('/predict', methods=['POST'])
@@ -57,6 +63,32 @@ def predictdiab():
 
    
     l1 = {"LR": predictionLR, "NB": predictionNB, "SVM": predictionSVM}
+
+    
+    return jsonify(l1)
+
+
+@app.route('/predictheart', methods=['POST'])
+def predictheart():
+    
+    data = request.get_json(force=True)
+    print(data)
+
+   
+    input_data = data['data']  
+   
+    input_data_as_numpy_array = np.asarray(input_data)
+
+    
+    input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+
+  
+    predictionheart = model_heart_grad.predict(input_data_reshaped).tolist()
+    predictionlogi = model_heart_logi.predict(input_data_reshaped).tolist()
+    predictionNB = model_heart_NB.predict(input_data_reshaped).tolist()
+
+   
+    l1 = {"LR": predictionlogi, "NB": predictionNB, "Gradient": predictionheart}
 
     
     return jsonify(l1)
