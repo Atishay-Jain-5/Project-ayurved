@@ -8,6 +8,7 @@ import section3img from "./ig.png";
 export default function Boxcomponent() {
   const { Symptoms, predictions,cureAndDesc } = useContext(SymptomsContext);
   let iter=1;
+  console.log(cureAndDesc)
   // const { , send_symptoms } = symptomsContext;
   return (
     <div className="flex flex-row">
