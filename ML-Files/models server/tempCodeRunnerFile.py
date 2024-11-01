@@ -1,1 +1,0 @@
-1 = {"RF": predictionRF, "K": predictionK, "DT": predictionDT, "predictionMLP": predictionMLP,"predictionNB": predictionNB}

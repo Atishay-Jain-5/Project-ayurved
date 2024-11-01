@@ -3,22 +3,22 @@ from joblib import load
 import numpy as np
 
 app = Flask(__name__)
-model_pathRF = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\RandomForest.joblib'
-model_pathk = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\classifierK.joblib'
-model_pathDT = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\DecisionTree.joblib'
-model_pathMLP = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\classifierMLP.joblib'
-# model_pathSVM = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\classifierSVM.joblib'
-model_pathNB = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\classifierNB.joblib'
-model_dia_pathNB = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\diabetes\NaiveBayes_diab_.joblib'
-model_dia_pathSVM = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\diabetes\SVM_diab_.joblib'
-model_dia_pathLR = r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\diabetes\LogisticRegression_diab_.joblib'
-model_heart_grad_path= r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\heart\GradientBoostingClassifier_heart.joblib'
-model_heart_logi_path= r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\heart\LogisticRegression_heart.joblib'
-model_heart_NB_path= r'D:\Atishay\homework\Project minor\Project-ayurved\ML-Files\heart\NaiveBayes_2_heart.joblib'
+model_pathRF = r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\RandomForest.joblib'
+model_pathk = r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\classifierK.joblib'
+model_pathDT = r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\DecisionTree.joblib'
+# model_pathMLP = r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\classifierMLP.joblib'
+model_pathSVM = r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\classifierSVM.joblib'
+model_pathNB = r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\models server\classifierNB.joblib'
+model_dia_pathNB = r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\diabetes\NaiveBayes_diab_.joblib'
+model_dia_pathSVM = r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\diabetes\SVM_diab_.joblib'
+model_dia_pathLR = r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\diabetes\LogisticRegression_diab_.joblib'
+model_heart_grad_path= r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\heart\GradientBoostingClassifier_heart.joblib'
+model_heart_logi_path= r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\heart\LogisticRegression_heart.joblib'
+model_heart_NB_path= r'E:\Atishay\homework\Project minor\Project-ayurved\ML-Files\heart\NaiveBayes_2_heart.joblib'
 modelRF = load(model_pathRF)
 modelK = load(model_pathk)
 modelDT = load(model_pathDT)
-modelMLP = load(model_pathMLP)
+modelSVM = load(model_pathSVM)
 model_dia_LR=load(model_dia_pathLR)
 model_dia_SVM=load(model_dia_pathSVM)
 model_dia_NB=load(model_dia_pathNB)
@@ -35,11 +35,11 @@ def predict():
    
     predictionRF = modelRF.predict(input_data).tolist()
     predictionK = modelK.predict(input_data).tolist()
-    predictionMLP = modelMLP.predict(input_data).tolist()
+    # predictionMLP = modelMLP.predict(input_data).tolist()
     predictionDT = modelDT.predict(input_data).tolist()
-   # predictionSVM = modelSVM.predict(input_data).tolist()
+    predictionSVM = modelSVM.predict(input_data).tolist()
     predictionNB = modelNB.predict(input_data).tolist()
-    l1 = {"RF": predictionRF, "K": predictionK, "DT": predictionDT, "predictionMLP": predictionMLP,"predictionNB": predictionNB}
+    l1 = {"RF": predictionRF, "K": predictionK, "DT": predictionDT, "predictionSVM": predictionSVM,"predictionNB": predictionNB}
    # print(l1)
     return jsonify(l1)
 @app.route('/predictdiab', methods=['POST'])
