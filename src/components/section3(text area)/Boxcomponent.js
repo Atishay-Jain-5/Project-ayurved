@@ -101,7 +101,7 @@ export default function Boxcomponent() {
             <Typography
               variant="h5"
               gutterBottom
-              style={{ fontFamily: "Courier New", padding: "3px",textAlign: "justify",
+              style={{ fontFamily: "Courier New", padding: "3px",textAlign:"left",
                 textJustify: "inter-word" }}
             >
               {predictions && predictions.Disease && (
